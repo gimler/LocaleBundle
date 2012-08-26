@@ -53,6 +53,7 @@ class TargetInformationBuilder
         $infos['current_locale'] = $request->getLocale();
         $infos['current_route'] = $route;
         $targetLocales = $allowedLocales;
+        $parameters = array_merge($request->attributes->get('_route_params'), $request->query->all(), $parameters);
 
         foreach ($targetLocales as $locale) {
             // No need to build route and locale names for current locale
